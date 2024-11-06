@@ -9,7 +9,9 @@ class Obstacle {
   }
   
   void display() {
-    fill(0, 0, 255);
-    rect(x, y, size, size);
+    //fill(0, 0, 255);
+    //rect(x, y, size, size);
+    fill(255, 0, 0, 125);
+    ellipse(x, y, size, size);
   }
 }

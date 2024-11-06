@@ -19,7 +19,7 @@ class Character {
   }
   
   void display() {
-    fill(255, 0, 0);
+    fill(255);
     ellipse(x, y, size, size);
   }
 }
