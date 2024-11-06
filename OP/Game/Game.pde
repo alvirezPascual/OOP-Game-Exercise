@@ -11,9 +11,15 @@
 Character player;
 //Obstacle obstacle;
 Obstacle obstacle;
+import processing.sound.*;
+
+SoundFile sound;
+
+
 
 void setup() {
   size(400, 400);
+  sound = new SoundFile(this, "femaleScream.mp3");
   player = new Character(50, height / 2, 30);
   obstacle = new Obstacle(width - 50, height / 2, 40);
 }
@@ -38,6 +44,7 @@ void draw() {
   obstacle.display();
 
   if (player.collidesWith(obstacle)) {
+    sound.play();
     textSize(32);
     fill(0);
     text("Eeeek!", width / 2 - 100, height / 2);
