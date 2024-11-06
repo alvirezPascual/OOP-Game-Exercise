@@ -14,26 +14,26 @@ class Character {
   }
   
   boolean collidesWith(Obstacle obstacle) {
-    float distance = dist(x, y, obstacle.x, obstacle.y);
+    float distance = dist(x+150, y+250, obstacle.x, obstacle.y);
     return distance < (size + obstacle.size) / 2;
   }
   
   void display() {
     fill(255);
-    ellipse(x, y, size, size);
-    // beginShape();
-    // vertex(150, 250);
-    // vertex(150, 260);
-    // vertex(145, 260);
-    // vertex(145, 250);
-    // vertex(125, 250);//Beginning of handle
-    // vertex(125, 240);
-    // vertex(145, 240);//End of handle
-    // vertex(145, 230);
-    // vertex(150, 230);
-    // vertex(150, 240);
-    // vertex(200,245);
-    // endShape(CLOSE);
+    //ellipse(x, y, size, size);
+    beginShape();
+    vertex(150+x, y+250);
+    vertex(150+x, y+260);
+    vertex(145+x, y+260);
+    vertex(145+x, y+250);
+    vertex(125+x, y+250);//Beginning of handle
+    vertex(125+x, y+240);
+    vertex(145+x, y+240);//End of handle
+    vertex(145+x, y+230);
+    vertex(150+x, y+230);
+    vertex(150+x, y+240);
+    vertex(200+x, y+245);
+    endShape(CLOSE);
     
 
   }
