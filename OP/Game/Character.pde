@@ -14,7 +14,8 @@ class Character {
   }
   
   boolean collidesWith(Obstacle obstacle) {
-    float distance = dist(x+150, y+250, obstacle.x, obstacle.y);
+    float distance = dist(x+210, y+250, obstacle.x, obstacle.y);
+    println(x);
     return distance < (size + obstacle.size) / 2;
   }
   

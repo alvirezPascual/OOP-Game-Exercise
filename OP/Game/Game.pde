@@ -8,7 +8,10 @@
   Last Modified: November 6, 2024
   */
 
-Character player;
+static final int DIAM = 80, SPD = 4, FPS = 60;
+static final color BG = 0350;
+Player player;
+//Character player;
 //Obstacle obstacle;
 Obstacle obstacle;
 import processing.sound.*;
@@ -20,24 +23,34 @@ SoundFile sound;
 void setup() {
   size(400, 400);
   sound = new SoundFile(this, "femaleScream.mp3");
-  player = new Character(50, height / 2, 30);
+  player = new Player(width / -8, height / -9, 30);
   //player = new Shape(50, height / 2, 30);
   obstacle = new Obstacle(width - 50, height / 2, 40);
+  smooth(3);
+  frameRate(FPS);
+  ellipseMode(CENTER);
+ 
+  fill(Player.INK);
+  stroke(Player.OUTLINE);
+  strokeWeight(Player.BOLD);
+ 
+  //p = new Player(width /-2, height /-2, DIAM, SPD);
 }
 
 void draw() {
+  
     
   background(125);
 
   if (keyPressed) {
     if (key == 'a') {
-      player.move(-2, 0);
+      player.move();
     } else if (key == 'd') {
-      player.move(2, 0);
+      player.move();
     } else if (key == 'w') {
-      player.move(0, -2);
+      player.move();
     } else if (key == 's') {
-      player.move(0, 2);
+      player.move();
     }
   }
 
@@ -48,10 +61,18 @@ void draw() {
     sound.play();
     textSize(32);
     fill(0);
-    text("Eeeek!", width / 2 - 100, height / 2);
+    text("Eeeek!", width / 3, height / 2);
   }
+  player.move();
+  player.display();
 }
-
+void keyPressed() {
+  player.setMove(keyCode, true);
+}
+ 
+void keyReleased() {
+  player.setMove(keyCode, false);
+}
 void mousePressed(){
     println(mouseX,mouseY);
 }
