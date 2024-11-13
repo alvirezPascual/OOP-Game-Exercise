@@ -4,8 +4,11 @@
   Pasadena City College, Fall 2024
   Course Name: DMA60 Creative Coding
   Prof. George McKinney
-  Project Description: This program .... (describe it!)
-  Last Modified: November 6, 2024
+  Project Description: This program substitutes the former objects with a knife and heart,
+  and includes additional changes. When the knife hovers over the heart the text 'Eeeek!' appears 
+  and a screaming woman is heard. Diagonal movement was also added to the player object.
+  )
+  Last Modified: November 13, 2024
   */
 
 static final int DIAM = 80, SPD = 4, FPS = 60;
@@ -23,16 +26,16 @@ SoundFile sound;
 void setup() {
   size(400, 400);
   sound = new SoundFile(this, "femaleScream.mp3");
+  obstacle = new Obstacle(width - 50, height / 2, 40);
   player = new Player(width / -8, height / -9, 30);
   //player = new Shape(50, height / 2, 30);
-  obstacle = new Obstacle(width - 50, height / 2, 40);
   smooth(3);
   frameRate(FPS);
   ellipseMode(CENTER);
  
   fill(Player.INK);
   stroke(Player.OUTLINE);
-  strokeWeight(Player.BOLD);
+  //strokeWeight(Player.BOLD);
  
   //p = new Player(width /-2, height /-2, DIAM, SPD);
 }
@@ -54,8 +57,8 @@ void draw() {
     }
   }
 
-  player.display();
   obstacle.display();
+  player.display();
 
   if (player.collidesWith(obstacle)) {
     sound.play();
